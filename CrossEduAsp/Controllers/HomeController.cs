@@ -12,7 +12,7 @@ namespace CrossEduAsp.Controllers
 		ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-			var gameentities = db.GameEntities.OrderBy(x=>x.CounterViews);
+			var gameentities = db.GameEntities.OrderByDescending(x=>x.CounterViews);
 			return View(gameentities.ToList());
         }
 
