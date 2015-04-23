@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CrossEduAsp.Models;
 
 namespace CrossEduAsp.Controllers
 {
     public class HomeController : Controller
     {
+		ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+			var gameentities = db.GameEntities.OrderByDescending(x=>x.CounterViews);
+			return View(gameentities.ToList());
         }
 
         public ActionResult About()
