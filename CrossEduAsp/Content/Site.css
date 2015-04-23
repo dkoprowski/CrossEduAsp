@@ -19,6 +19,7 @@ textarea {
 .rating{color:#9b403f;}
 .margin-top {margin-top:20px;}
 .margin-left {margin-left:20px;}
+.margin-left40 {margin-left:40px;}
 .padding-bottom {padding-bottom:20px;}
 .classWithPad { margin:10px; padding:10px; }
 .category {border-color: rgba(11, 79, 138, 0.54);color: #178CCF;border: 1px solid;}
@@ -29,6 +30,7 @@ textarea {
 .blue{ color:#128ee9;}
 .silver {color:silver;}
 .font10px {font-size: 10px;}
+.revievbutton {position: relative;bottom: 47px;left: 214px;}
 
 /* styles for validation helpers */
 .field-validation-error {
