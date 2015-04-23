@@ -1,0 +1,53 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.gameTitle{color:#0b4f8a;}
+.rating{color:#9b403f;}
+.margin-top {margin-top:20px;}
+.margin-left {margin-left:20px;}
+.padding-bottom {padding-bottom:20px;}
+.classWithPad { margin:10px; padding:10px; }
+.category {border-color: rgba(11, 79, 138, 0.54);color: #178CCF;border: 1px solid;}
+.cell:hover {  background-color:rgba(11, 79, 138, 1); color:white;}
+.category-header { background-color: #0B4F8A;color: #FFF;padding: 8px 25px;font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+.game {position: relative;margin-top: 25px;padding: 5px;background-color: rgba(144, 144, 144, 0.07);}
+.upload {text-align: right;position: absolute;right: 10px;top: 150px;}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}

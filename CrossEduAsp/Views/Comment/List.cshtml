@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNet.Identity
+@model CrossEduAsp.Models.GameViewModel
+
+@{
+    Model.Comment.GameId = Model.Game.Id;
+}
+
+<table class="table">
+    @foreach (var item in Model.CommentList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.ApplicationUser.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.Content)
+            </td>
+            <td>
+                @Html.DisplayFor(m => item.DateOfPublication)
+            </td>
+            
+                @if (item.ApplicationUserId == @User.Identity.GetUserId())
+                {
+                    <td>
+                        @Html.DisplayFor(m => item.Id)
+
+
+                        @Html.ActionLink("Edit", "Edit", "Comment", new {id = item.Id}, null)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m=>item.Id)
+                        @Html.ActionLink("Delete", "Delete", "Comment", new {id = item.Id}, null)
+                    </td>
+                }
+        
+        
+        </tr>
+    }
+</table>

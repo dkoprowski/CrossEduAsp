@@ -1,0 +1,160 @@
+﻿@using Microsoft.AspNet.Identity
+@model CrossEduAsp.Models.GameViewModel
+
+@{
+    Model.Comment.ApplicationUserId = @User.Identity.GetUserId();
+    
+    Model.Comment.GameId = Model.Game.Id;
+}
+
+@Html.HiddenFor(m => m.Game)
+
+<script type='text/javascript' src='https://ssl-webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/jquery.min.js'></script>
+<script type="text/javascript">
+		<!--
+		var unityObjectUrl = "http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject2.js";
+		if (document.location.protocol == 'https:')
+			unityObjectUrl = unityObjectUrl.replace("http://", "https://ssl-");
+		document.write('<script type="text\/javascript" src="' + unityObjectUrl + '"><\/script>');
+		-->
+</script>
+<script type="text/javascript">
+		<!--
+			var config = {
+				width: 800,
+				height: 600,
+				params: { enableDebugging:"0" }
+
+			};
+			var u = new UnityObject2(config);
+
+			jQuery(function() {
+
+				var $missingScreen = jQuery("#unityPlayer").find(".missing");
+				var $brokenScreen = jQuery("#unityPlayer").find(".broken");
+				$missingScreen.hide();
+				$brokenScreen.hide();
+
+				u.observeProgress(function (progress) {
+					switch(progress.pluginStatus) {
+						case "broken":
+							$brokenScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$brokenScreen.show();
+						break;
+						case "missing":
+							$missingScreen.find("a").click(function (e) {
+								e.stopPropagation();
+								e.preventDefault();
+								u.installPlugin();
+								return false;
+							});
+							$missingScreen.show();
+						break;
+						case "installed":
+							$missingScreen.remove();
+						break;
+						case "first":
+						break;
+					}
+				});
+				u.initPlugin(jQuery("#unityPlayer")[0], "@Html.DisplayFor(model => model.Path)");
+			});
+		-->
+</script>
+
+<!-- Very basic view of Game view -->
+<div class="container">
+    <div class="row">
+        <div class="gameInfo">
+            <div class="col-md-9">
+                <div class="thumbnail">
+<<<<<<< HEAD
+                    <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                    <h2 class="gameTitle margin-left">@Html.DisplayFor(model => model.Game.Title)</h2>
+
+
+                    <!--<div class="gameWindow">
+                        @Html.DisplayFor(model => model.Game.Path)
+                    </div>-->
+=======
+                    
+                   <!-- <img class="img-responsive" src="http://placehold.it/800x300" alt="">-->
+                    <div class="content" width="400">
+                        <div id="unityPlayer" class=obraz>
+                            <div class="missing">
+                                <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+                                    <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63"/>
+                                </a>
+                            </div>
+                            <div class="broken">
+                                <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now! Restart your browser after install.">
+                                    <img alt="Unity Web Player. Install now! Restart your browser after install." src="http://webplayer.unity3d.com/installation/getunityrestart.png" width="193" height="63"/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="gameTitle margin-left">@Html.DisplayFor(model => model.Title)</h2>
+
+
+                    <div class="gameWindow">
+
+                    </div>
+
+>>>>>>> login-system
+                    <div class="gameDescription margin-left">
+                        <i>
+                            @Html.DisplayFor(model => model.Game.Description)
+                        </i>
+                    </div>
+                    <div class="gameDescription margin-left">
+                        @Html.DisplayFor(model => model.Game.CounterViews) views
+                    </div>
+                    <div class="rating margin-top margin-left">
+                        <span>Rating</span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </div>
+                    <div class="text-right">
+                        Uploaded by
+                        <b>@Html.DisplayFor(model => model.Game.ApplicationUser.UserName)</b>
+                        in
+                        @Html.DisplayFor(model => model.Game.ReleaseDate).ToString().Substring(0, 10)
+                    </div>
+                </div>
+                <div class="gameComments">
+                    <div class="well">
+
+                        @Html.Partial("../Comment/Create")
+                        @Html.Partial("../Comment/List")
+                        @section Scripts {
+                            @Scripts.Render("~/bundles/jqueryval")
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <p class="lead margin-top">Polecane Gry</p>
+                <div class="thumbnail">
+                    <img class="img-responsive" src="http://placehold.it/150x60" alt="">
+                    <div class="caption-full">
+                        <h4 class="gameTitle">@Html.DisplayFor(model => model.Game.Title)</h4>
+                        <div class="gameDescription">
+                            <i>
+                                @Html.DisplayFor(model => model.Game.Description)
+                            </i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

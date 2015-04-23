@@ -1,0 +1,32 @@
+﻿@model CrossEduAsp.Models.GameViewModel
+           
+@using (Html.BeginForm("ShowGame", "Game", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Comment.Content)
+                @Html.ValidationMessageFor(model => model.Comment.Content)
+            </div>
+        </div>       
+        @Html.HiddenFor(model => model.Comment.DateOfPublication)
+
+        <div class="form-group">
+            <div class="text-right">
+                <input type="submit" value="Leave a Review" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+
+
+    @Html.HiddenFor(m => m.Comment.ApplicationUserId)
+    @Html.HiddenFor(m => m.Game.Id)
+
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
