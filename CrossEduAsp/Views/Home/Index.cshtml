@@ -1,4 +1,6 @@
-﻿@{
+﻿@model IEnumerable<CrossEduAsp.Models.Entities.GameEntity>
+
+@{
     ViewBag.Title = "Home Page";
 }
 <div class="col-md-3 margin-top">
@@ -122,90 +124,16 @@
     <div class="col-md-9">
         <div class="jumbotron">
             <h1>Top 10</h1>
-            <div class="row">
-
-                    <div class="col-md-6 portfolio-item">
-                        <a href="#">
-                            <img class="img-responsive" src="http://placehold.it/400x250" alt="">
-                        </a>
-                        <h3>
-                            <a href="#">Project One</a>
-                        </h3>                       
+            @foreach (var item in Model)
+            {
+                <div class="row">
+                    <div class="col-md-8">
+                        <h2 class="gameTitle">
+                            @Html.ActionLink(Html.DisplayFor(modelItem => item.Title).ToString(), "Game", "ShowGame", new {id = item.Id})
+                        </h2>
+                        <br/>
                     </div>
-                    <div class="col-md-6 portfolio-item">
-                        <a href="#">
-                            <img class="img-responsive" src="http://placehold.it/400x250" alt="">
-                        </a>
-                        <h3>
-                            <a href="#">Project Two</a>
-                        </h3>                       
-                    </div>
-                    
-                <div class="col-md-6 portfolio-item">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/400x250" alt="">
-                    </a>
-                    <h3>
-                        <a href="#">Project Three</a>
-                    </h3>
                 </div>
-                <div class="col-md-6 portfolio-item">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/400x250" alt="">
-                    </a>
-                    <h3>
-                        <a href="#">Project Four</a>
-                    </h3>
-                </div>
-                <div class="col-md-6 portfolio-item">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/400x250" alt="">
-                    </a>
-                    <h3>
-                        <a href="#">Project Five</a>
-                    </h3>
-                </div>
-                <div class="col-md-6 portfolio-item">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/400x250" alt="">
-                    </a>
-                    <h3>
-                        <a href="#">Project Six</a>
-                    </h3>
-                </div>
-                <div class="col-md-6 portfolio-item">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/400x250" alt="">
-                    </a>
-                    <h3>
-                        <a href="#">Project Seven</a>
-                    </h3>
-                </div>
-                <div class="col-md-6 portfolio-item">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/400x250" alt="">
-                    </a>
-                    <h3>
-                        <a href="#">Project Eight</a>
-                    </h3>
-                </div>
-                <div class="col-md-6 portfolio-item">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/400x250" alt="">
-                    </a>
-                    <h3>
-                        <a href="#">Project Nine</a>
-                    </h3>
-                </div>
-                <div class="col-md-6 portfolio-item">
-                    <a href="#">
-                        <img class="img-responsive" src="http://placehold.it/400x250" alt="">
-                    </a>
-                    <h3>
-                        <a href="#">Project Ten</a>
-                    </h3>
-                </div>
-                </div>
-            </div>
+            }
         </div>
-
+    </div>
