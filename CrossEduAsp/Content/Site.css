@@ -26,6 +26,9 @@ textarea {
 .category-header { background-color: #0B4F8A;color: #FFF;padding: 8px 25px;font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
 .game {position: relative;margin-top: 25px;padding: 5px;background-color: rgba(144, 144, 144, 0.07);}
 .upload {text-align: right;position: absolute;right: 10px;top: 150px;}
+.blue{ color:#128ee9;}
+.silver {color:silver;}
+.font10px {font-size: 10px;}
 
 /* styles for validation helpers */
 .field-validation-error {

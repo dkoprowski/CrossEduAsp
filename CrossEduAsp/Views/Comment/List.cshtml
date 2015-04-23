@@ -5,35 +5,27 @@
     Model.Comment.GameId = Model.Game.Id;
 }
 
-<table class="table">
+<div class="thumbnail">
     @foreach (var item in Model.CommentList)
     {
-        <tr>
-            <td>
+        <div class="row comment margin-left">
+            <div class="col-md-1 blue">
                 @Html.DisplayFor(m => item.ApplicationUser.UserName)
-            </td>
-            <td>
-                @Html.DisplayFor(m => item.Content)
-            </td>
-            <td>
+            </div>
+            <div class="col-md-10 silver">
                 @Html.DisplayFor(m => item.DateOfPublication)
-            </td>
-            
-                @if (item.ApplicationUserId == @User.Identity.GetUserId())
-                {
-                    <td>
-                        @Html.DisplayFor(m => item.Id)
+            </div>
+            <div class="col-md-12">                
+                @Html.DisplayFor(m => item.Content)
+            </div>
 
-
-                        @Html.ActionLink("Edit", "Edit", "Comment", new {id = item.Id}, null)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m=>item.Id)
-                        @Html.ActionLink("Delete", "Delete", "Comment", new {id = item.Id}, null)
-                    </td>
-                }
-        
-        
-        </tr>
+            @if (item.ApplicationUserId == @User.Identity.GetUserId())
+            {
+                <div class="col-md-2 font10px">
+                    @Html.ActionLink("Edit", "Edit", "Comment", new { id = item.Id }, null)
+                    @Html.ActionLink("Delete", "Delete", "Comment", new { id = item.Id }, null)
+                </div>
+            }
+        </div>
     }
-</table>
+</div>
