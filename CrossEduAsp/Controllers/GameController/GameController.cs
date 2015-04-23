@@ -52,6 +52,8 @@ namespace CrossEduAsp.Controllers.GameController
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Path,ReleaseDate,Title,Description,PicturePath,ApplicationUserId")] GameEntity gameentity)
         {
+
+	        gameentity.ReleaseDate = DateTime.Now;
             if (ModelState.IsValid)
             {
                 db.GameEntities.Add(gameentity);
