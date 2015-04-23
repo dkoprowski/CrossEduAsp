@@ -129,7 +129,7 @@
                 <div class="row">
                     <div class="col-md-8">
                         <h2 class="gameTitle">
-                            @Html.ActionLink(Html.DisplayFor(modelItem => item.Title).ToString(), "Game", "ShowGame", new {id = item.Id})
+                            @Html.ActionLink(Html.DisplayFor(modelItem => item.Title).ToString(), "ShowGame", "Game", new { id = item.Id }, null)
                         </h2>
                         <br/>
                     </div>
