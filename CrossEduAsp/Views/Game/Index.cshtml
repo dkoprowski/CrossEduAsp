@@ -132,7 +132,7 @@
             <div class="game row">
 
 
-                <img class="col-md-4" src="http://placehold.it/300x200" alt="">
+                <img class="col-md-4" src="@Html.DisplayFor(modelItem => item.PicturePath)" alt="">
                 <div class="col-md-8">
                     <h2 class="gameTitle">
                         @Html.ActionLink(Html.DisplayFor(modelItem => item.Title).ToString(), "ShowGame", new { id = item.Id })
