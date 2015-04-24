@@ -94,7 +94,7 @@
 
 
                     <div class="gameWindow">
-                        @Html.DisplayFor(model => model.Game.Path)
+                     <!--   @Html.DisplayFor(model => model.Game.Path) -->
                     </div>
 
                     <div class="gameDescription margin-left">
@@ -103,7 +103,7 @@
                         </i>
                     </div>
                     <div class="gameDescription margin-left">
-                        @Html.DisplayFor(model => model.Game.CounterViews) views
+                        <b> @Html.DisplayFor(model => model.Game.CounterViews) views</b>
                     </div>
                     <div class="rating margin-top margin-left">
                         <span>Rating<br /></span>
@@ -133,7 +133,9 @@
             <div class="col-md-3">
                 <p class="lead margin-top">Polecane Gry</p>
                 <div class="thumbnail">
-                    <img class="img-responsive" src="http://placehold.it/250x100" alt="">
+                <!--    <img class="img-responsive" src="http://placehold.it/250x100" alt="">-->
+                    <img class="img-responsive" width="250px" height="100px" src="@Html.DisplayFor(model => model.Game.PicturePath)" alt="">
+                    
                     <div class="caption-full">
                         <h4 class="gameTitle">@Html.DisplayFor(model => model.Game.Title)</h4>
                         <div class="gameDescription">

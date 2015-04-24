@@ -126,14 +126,24 @@
             <h1>Top 10</h1>
             @foreach (var item in Model)
             {
-                <div class="row">
-                    <div class="col-md-8">
-                        <h2 class="gameTitle">
-                            @Html.ActionLink(Html.DisplayFor(modelItem => item.Title).ToString(), "ShowGame", "Game", new { id = item.Id }, null)
-                        </h2>
-                        <br/>
+              
+
+                    
+                    <div class="col-md-6 portfolio-item">
+                         <a href="#">
+                             <img class="img-responsive" src="@Html.DisplayFor(modelItem => item.PicturePath)" alt="">
+                            
+                        </a>
+                        
+                        <h3>
+                             @Html.ActionLink(Html.DisplayFor(modelItem => item.Title).ToString(), "ShowGame", "Game", new { id = item.Id }, null)
+                            
+                        </h3>
+                        
                     </div>
-                </div>
+
+
+                
             }
         </div>
     </div>
